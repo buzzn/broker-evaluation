@@ -1,6 +1,7 @@
 # Broker Api
 Each call returns the HTTP error code `200` or an error HTTP with an error object: `{"errorName": string, "errorDescription": string}`.  
-Attention: Each call requires a logged-in user! (Exception: `/set-password`.) We use the JSON/JavaScript datetime representation as specified by the W3C. Example: '2019-10-08T10:44:57+01:00'
+Attention: Each call requires a logged-in user! (Exception: `/set-password`.) We use the JSON/JavaScript datetime representation as specified by the W3C. 
+(Example: '2019-10-08T10:44:57+01:00'.).)
 
 ## Hints
 `GET /hints`  
