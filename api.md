@@ -106,12 +106,12 @@ Returns:`{'position': int, 'name': string, 'value': string}[]`
 ## Live data via websocket
 ```javascript
 {
-    'date': date,
-    'userConsumption': int,
-    'groupConsumption': int,
-    'groupProduction': int,
-    'selfSufficiency': int,
-    'consumersUser': {'icon': string, 'name': string, 'level': int}[]
-    'consumersGroup': {'icon': string, 'name': string, 'level': int}[]
+    "date": date,
+    "userConsumption": int,
+    "groupConsumption": int,
+    "groupProduction": int,
+    "selfSufficiency": int,
+    "consumersUser": {"icon": string, "name": string, "level": int}
+    "consumersGroup": {"icon": string, "name": string, "level": int}
 }
 ```
