@@ -14,8 +14,8 @@ Languages - HTTP Frameworks
 * https://github.com/oktal/pistache/
 
 4. C++ - Crow
-* https://github.com/ipkn/crow]
-* ! not maintained any more, e.g. no longer compatible to the Boost library !
+* https://github.com/ipkn/crow
+* !not maintained any more, e.g. no longer compatible to the Boost libray!
 
 
 5. C++ - Restbed 
