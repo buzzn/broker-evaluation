@@ -13,8 +13,10 @@ Languages - HTTP Frameworks
 3. C++ - Pistache
 * https://github.com/oktal/pistache/
 
-4. C++ - Crow
-* https://github.com/ipkn/crow
+[4. C++ - Crow
+* https://github.com/ipkn/crow]
+	* not maintained any more, e.g. no longer compatible to the Boost library
+
 
 5. C++ - Restbed 
 * https://github.com/corvusoft/restbed
@@ -31,7 +33,7 @@ Languages - HTTP Frameworks
 	* https://www.sitepoint.com/implementing-spring-websocket-server-and-client/
 	* https://spring.io/guides/gs/messaging-stomp-websocket/
 
-9. Python - Django 
+9. Python - Django ✓
 * https://github.com/django/django
 * Examples: 
 	* https://medium.com/@adriennedomingus/sending-notifications-to-a-django-application-using-websockets-d576e5e5acdf
@@ -39,7 +41,7 @@ Languages - HTTP Frameworks
 	* https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_time_apps_in_django
 	* https://devarea.com/django-simple-channels-example/#.XZ3KgOZfiSQ 
 
-10. Python - Flask 
+10. Python - Flask ✓
 * https://github.com/pallets/flask
 * Examples: 
 	* https://secdevops.ai/weekend-project-part-2-turning-flask-into-a-real-time-websocket-server-using-flask-socketio-ab6b45f1d896
