@@ -15,7 +15,7 @@ Languages - HTTP Frameworks
 
 4. C++ - Crow
 * https://github.com/ipkn/crow
-* !not maintained any more, e.g. no longer compatible to the Boost libray!
+* not maintained any more, e.g. no longer compatible to the Boost libray!
 
 
 5. C++ - Restbed 
