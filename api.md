@@ -1,7 +1,25 @@
 # Broker Api
 Each call returns the HTTP error code `200` or a HTTP error code with a optional error object: `{"errorName": string, "errorDescription": string}`.
-Attention: Each call requires a logged-in user! (Exception: `/set-password`.)
+Attention: Each call requires a logged-in user! The session token is sent via the according Authorization header (Exception: `/set-password`).
+If the session has expired, each request will result in a `401` and an according error object.
 We use POSIX time for all date/time values.
+
+# User login
+## Login
+`POST /login`
+Parameters:
+- `user` string The account's username.
+- `password` string The account's password.
+Returns:
+`200` `{"sessionToken": string}` If username exists and password is correct.
+    -  *sessionToken* The session token.
+`401` `{errorObject}` If username does not exist or password is incorrect.
+
+## Logout
+`Get /logout`
+Parameters: none
+Invalidates the user's session.
+Returns: `200` `{}` If the user was logged in and the session was invalidated.
 
 ## Hints
 ### Get all hints
