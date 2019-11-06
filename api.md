@@ -4,8 +4,8 @@ Attention: Each call requires a logged-in user! The session token is sent via th
 If the session has expired, each request will result in a `401` and an according error object.
 We use POSIX time for all date/time values.
 
-# User login
-## Login
+## User login
+### Login
 `POST /login`
 Parameters:
 - `user` string The account's username.
@@ -15,7 +15,7 @@ Returns:
     -  *sessionToken* The session token.
 `401` `{errorObject}` If username does not exist or password is incorrect.
 
-## Logout
+### Logout
 `Get /logout`
 Parameters: none
 Invalidates the user's session.
@@ -47,14 +47,14 @@ Returns: `200` `{"id": int, "name": string, "description": string, "total": int,
 - *total*: Counts how often this challenge has been run by the user.
 - *succeeded*: Counts how often this challenge has been succeeded by the user. Always < total.
 
-## Start a challenge
+### Start a challenge
 `GET /challenges/start/$id`
 Parameters: `id` int The id of the challenge to start
 Starts the specified challenge.
 Returns:`200` `{}`
     or `404` `{ErrorObject}` If the `id` is not valid.
 
-## Get status of running challenge(s)
+### Get status of running challenge(s)
 `GET /challenges/status`
 Parameters: none
 Shows the current running challenge.
