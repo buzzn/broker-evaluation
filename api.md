@@ -142,10 +142,13 @@ Returns:
 `GET /hitlist`
 Parameters: none
 Shows the group's hitlist.
-Returns:`200` `{'position': int, 'name': string, 'value': string}[]`
+Returns:`200` `{"id": int, "avatar": string, "position": int, "name": string, "value": string}[]`
+- *id*: `int` The user's id.
+- *avatar*: The user's avatar encoded in base64.
+- *icon*: `string` The group icon.
 - *position*: `int` The hitlist position of the entry.
 - *name*: `string` The user's name of the position.
-- *value*: `string` The user's value to be compared.may return an Error
+- *value*: `string` The user's value to be compared. May return an Error
 
 
 ## Live data via websocket
