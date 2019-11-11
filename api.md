@@ -96,11 +96,11 @@ Example: {"consumed": [2903.0, 2903.1, ..., 1523.0], "produced": [1234.5, 1234.0
 `GET /profile`
 Parameters: none
 Gets the user's profile.
-Returns: `200` `{"name": string, "firstname": string, "nick": string, "flatSize": int, "flatPopulation": int, "groupAddress": string, "mail": string, "avatar": string }`
+Returns: `200` `{"name": string, "firstName": string, "nick": string, "flatSize": int, "flatPopulation": int, "groupAddress": string, "mail": string, "avatar": string }`
 - *name*: The user's name.
-- *firstname*: The user's name.
+- *firstName*: The user's first name.
 - *nick*: The user's nick name.
-- *groupaddress*: The user's address.
+- *groupAddress*: The user's address.
 - *mail*: The user's mail address.
 - *flatSize*: The user's flat size in m^2
 - *flatPopulation*: The number of people living in the flat.
@@ -153,15 +153,31 @@ Returns:`200` `{"id": int, "avatar": string, "position": int, "name": string, "v
 
 ## Live data via websocket
 Address: `ws:BASEURL/live`.
-The Websocket times out after 2 Minutes.
+Each Websocket closes after 2 Minutes and has to be reopened.
 ```javascript
 {
     "date": date,
-    "userConsumption": int,
     "groupConsumption": int,
     "groupProduction": int,
     "selfSufficiency": int,
-    "consumersUser": {"icon": string, "name": string, "level": int}
-    "consumersGroup": {"icon": string, "name": string, "level": int}
+    "usersConsumption": {"id": string, "consumption": int} [],
+    "userDevices": {"icon": string, "name": string, "level": int} [],
+    "groupDevices": {"icon": string, "name": string, "level": int} []
 }
 ```
+Each object represents one reading of the meters.
+- *date*: `date` Time of the reading.
+- *groupConsumption*: `int` The overall group consumption in mWh.
+- *groupProduction*: `int` The overall group production in mWh.
+- *selfSufficiency*: `int` Self sufficiency of the user. (Not yet defined)
+- *usersConsumption*: {*id*: `string`, *consumption*: `int`} [] Consumption of each user in the group.
+  - *id*: `string` The user's id.
+  - *consumption*: `int` User's overall consumption.
+- *userDevices*: {*icon*: string, *name*: string, *level*: int} [] Detected power consuming devices which belong to the user.
+  - *icon*: string Device icon.
+  - *name*: string Device name.
+  - *level*: int Amount of consumed power. (To be defined).
+- *groupDevices*: {*icon*: string, *name*: string, *level*: int} [] Detected power consuming devices which belong to the group.
+  - *icon*: string Device icon.
+  - *name*: string Device name.
+  - *level*: int Amount of consumed power. (To be defined).
