@@ -170,14 +170,14 @@ Each object represents one reading of the meters.
 - *groupConsumption*: `int` The overall group consumption in mWh.
 - *groupProduction*: `int` The overall group production in mWh.
 - *selfSufficiency*: `int` Self sufficiency of the user. (Not yet defined)
-- *usersConsumption*: {*id*: `string`, *consumption*: `int`} [] Consumption of each user in the group.
+- *usersConsumption*: `{"id": string, "consumption": int} []` Consumption of each user in the group.
   - *id*: `string` The user's id.
   - *consumption*: `int` User's overall consumption.
-- *userDevices*: {*icon*: string, *name*: string, *level*: int} [] Detected power consuming devices which belong to the user.
-  - *icon*: string Device icon.
-  - *name*: string Device name.
-  - *level*: int Amount of consumed power. (To be defined).
-- *groupDevices*: {*icon*: string, *name*: string, *level*: int} [] Detected power consuming devices which belong to the group.
-  - *icon*: string Device icon.
-  - *name*: string Device name.
-  - *level*: int Amount of consumed power. (To be defined).
+- *userDevices*: `{"icon": string, "name": string, "level": int} []` Detected power consuming devices which belong to the user.
+  - *icon*: `string` Device icon.
+  - *name*: `string` Device name.
+  - *level*: `int` Amount of consumed power. (To be defined).
+- *groupDevices*: `{"icon": string, "name": string, "level": int} []` Detected power consuming devices which belong to the group.
+  - *icon*: `string` Device icon.
+  - *name*: `string` Device name.
+  - *level*: `int` Amount of consumed power. (To be defined).
