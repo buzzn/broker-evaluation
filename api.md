@@ -120,9 +120,9 @@ Gets the user's profile.
 
 Returns: `200` `{"name": string, "firstname": string, "nick": string, "flatSize": int, "flatPopulation": int, "groupAddress": string, "mail": string, "avatar": string }`
 - *name*: The user's name.
-- *firstname*: The user's name.
+- *firstName*: The user's first name.
 - *nick*: The user's nick name.
-- *groupaddress*: The user's address.
+- *groupAddress*: The user's address.
 - *mail*: The user's mail address.
 - *flatSize*: The user's flat size in m^2
 - *flatPopulation*: The number of people living in the flat.
@@ -188,11 +188,27 @@ The Websocket times out after 2 Minutes.
 ```javascript
 {
     "date": date,
-    "userConsumption": int,
     "groupConsumption": int,
     "groupProduction": int,
     "selfSufficiency": int,
-    "consumersUser": {"icon": string, "name": string, "level": int}
-    "consumersGroup": {"icon": string, "name": string, "level": int}
+    "usersConsumption": {"id": string, "consumption": int} [],
+    "userDevices": {"icon": string, "name": string, "level": int} [],
+    "groupDevices": {"icon": string, "name": string, "level": int} []
 }
 ```
+Each object represents one reading of the meters.
+- *date*: `date` Time of the reading.
+- *groupConsumption*: `int` The overall group consumption in mWh.
+- *groupProduction*: `int` The overall group production in mWh.
+- *selfSufficiency*: `int` Self sufficiency of the user. (Not yet defined)
+- *usersConsumption*: `{"id": string, "consumption": int} []` Consumption of each user in the group.
+  - *id*: `string` The user's id.
+  - *consumption*: `int` User's overall consumption.
+- *userDevices*: `{"icon": string, "name": string, "level": int} []` Detected power consuming devices which belong to the user.
+  - *icon*: `string` Device icon.
+  - *name*: `string` Device name.
+  - *level*: `int` Amount of consumed power. (To be defined).
+- *groupDevices*: `{"icon": string, "name": string, "level": int} []` Detected power consuming devices which belong to the group.
+  - *icon*: `string` Device icon.
+  - *name*: `string` Device name.
+  - *level*: `int` Amount of consumed power. (To be defined).
