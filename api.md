@@ -86,7 +86,7 @@ Example one challenge running:`200` `{"id": 1, "progress": 0.8, "timeleft": 7203
 Parameters:
 - *begin*: `string` Start time of consumption. Default is today at 0:00.
 - *end*: `string` End time of consumption. Default is $now.
-- *tics*: `int` Interval time in seconds. Default is 60.
+- *tics*: `int` Time distance between readings with possible values 'raw', 'three_minutes', 'fifteen_minutes', 'one_hour', 'one_day', 'one_week', 'one_month', 'one_year', default is 'three_minutes'.
 
 Shows the history of consumption of the given time interval.
 
