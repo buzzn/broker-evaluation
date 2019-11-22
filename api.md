@@ -100,7 +100,7 @@ Parameters:
 Shows the history of consumption of the given time interval.
 
 Returns: `200` [float] An array of values where each one stands for the total power consumed at the time.
-         or `204` `{}` if there is no history.
+         or `206` `{}` if there is no history.
 
 Example: `200` `[2903.0, 2903.1, ..., 1523.0]`
 
