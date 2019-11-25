@@ -71,14 +71,14 @@ Parameters: none
 
 Shows the current running challenge.
 
-Returns:`200` `{"id": int, "progress": float, "expiryDate": int, "status": "running" | "failed" | "succeeded"}` | `204` `{}`
+Returns:`200` `{"id": int, "progress": float, "expiresAt": int, "status": "running" | "failed" | "succeeded"}` | `204` `{}`
 - *id*: The id of the running challenge.
 - *progress*: A value indicating the distance to the target, usually in kWh
-- *expiryDate*: Seconds left until the challenge ends.
+- *expiresAt*: Seconds left until the challenge ends.
 - *status*: Indicates the challenge's state, running, failed or succeeded.
 - Or `204` `{}` if no challenge is running.
 
-Example one challenge running:`200` `{"id": 1, "progress": 0.8, "expiryDate": 72032, "status": "running"}`
+Example one challenge running:`200` `{"id": 1, "progress": 0.8, "expiresAt": 72032, "status": "running"}`
 
 ### Quit a challenge.
 `POST /challenges/quit`
