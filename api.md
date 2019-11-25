@@ -84,7 +84,7 @@ Example one challenge running:`200` `{"id": 1, "progress": 0.8, "expiryDate": 72
 `POST /challenges/quit`
 Parameters: `id` int The id of the challenge to quit.
 
-Quits a quallenge. This can be used to abourt a running challenge or
+Quits a challenge. This can be used to abort a running challenge or
 acknowledge the failure or success of a ended challenge.
 Returns: `200` if the challenge was quitted
 	 `404` if no such challenge is running, failed or succeeded recently
