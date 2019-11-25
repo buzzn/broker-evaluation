@@ -75,7 +75,7 @@ Returns:`200` `{"id": int, "progress": float, "expiryDate": int, "status": "runn
 - *id*: The id of the running challenge.
 - *progress*: A value indicating the distance to the target, usually in kWh
 - *expiryDate*: Seconds left until the challenge ends.
-- *status*: Indicates the challenge's state, running, failed or succeeeded.
+- *status*: Indicates the challenge's state, running, failed or succeeded.
 - Or `204` `{}` if no challenge is running.
 
 Example one challenge running:`200` `{"id": 1, "progress": 0.8, "expiryDate": 72032, "status": "running"}`
@@ -99,10 +99,10 @@ Parameters:
 
 Shows the history of consumption of the given time interval.
 
-Returns: `200` [float] An array of values where each one stands for the total power consumed at the time.
+Returns: `200` `string => int` A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
          or `206` `{}` if there is no history.
 
-Example: `200` `[2903.0, 2903.1, ..., 1523.0]`
+Example: `200` `{"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}`
 
 ### Group
 `GET /group-consumption-history/begin/$begin/end/$end/tics/$tics`
@@ -114,11 +114,11 @@ Parameters:
 Shows the history of consumption of the given time interval.
 
 Returns:
-- `200` `{"consumed": float[], "produced": float[]}` or `204` `{}` if there is no history.
-- *consumed*: An array of values where each one stands for the total power consumed at the time.
-- *produced*: An array of values where each one stands for the total power produced at the time.
+- `200` `{"consumed": string => int, "produced": string => int}` or `204` `{}` if there is no history.
+- *consumed*: A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
+- *produced*: A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
 
-Example: {"consumed": [2903.0, 2903.1, ..., 1523.0], "produced": [1234.5, 1234.0, ..., 1523.9]}
+Example: `{"consumed": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}, "produced": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}}`
 
 ## Profile
 ### List profile
