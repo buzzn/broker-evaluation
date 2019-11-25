@@ -92,6 +92,7 @@ Returns: `200` if the challenge was quitted
 ## Consumption usage history
 ### User
 `GET /individual-consumption-history?begin=$begin&end=$end&tics=$tics`
+
 Parameters:
 - *begin*: `int` Start time of consumption. Default is today at 0:00.
 - *end*: `int` End time of consumption. Default is $now.
