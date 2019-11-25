@@ -71,20 +71,20 @@ Parameters: none
 
 Shows the current running challenge.
 
-Returns:`200` `{"id": int, "progress": float, "expiryDate": int, "status": "running" | "failed" | "succeeded"}` | `204` `{}`
+Returns:`200` `{"id": int, "progress": float, "expiresAt": int, "status": "running" | "failed" | "succeeded"}` | `204` `{}`
 - *id*: The id of the running challenge.
 - *progress*: A value indicating the distance to the target, usually in kWh
-- *expiryDate*: Seconds left until the challenge ends.
-- *status*: Indicates the challenge's state, running, failed or succeeeded.
+- *expiresAt*: Seconds left until the challenge ends.
+- *status*: Indicates the challenge's state, running, failed or succeeded.
 - Or `204` `{}` if no challenge is running.
 
-Example one challenge running:`200` `{"id": 1, "progress": 0.8, "expiryDate": 72032, "status": "running"}`
+Example one challenge running:`200` `{"id": 1, "progress": 0.8, "expiresAt": 72032, "status": "running"}`
 
 ### Quit a challenge.
 `POST /challenges/quit`
 Parameters: `id` int The id of the challenge to quit.
 
-Quits a quallenge. This can be used to abourt a running challenge or
+Quits a challenge. This can be used to abort a running challenge or
 acknowledge the failure or success of a ended challenge.
 Returns: `200` if the challenge was quitted
 	 `404` if no such challenge is running, failed or succeeded recently
@@ -99,26 +99,10 @@ Parameters:
 
 Shows the history of consumption of the given time interval.
 
-Returns: `200` and a JSON object with key-value-pairs where each key stands 
-for a timestamp and each value stands for the power consumed at the time 
-or `206` `{}` if there is no history.
+Returns: `200` `string => int` A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
+         or `206` `{}` if there is no history.
 
-Example: `200` `{
-  "1574636400000": 79492,
-  "1574640000000": 50295,
-  "1574643600000": 23894,
-  "1574647200000": 39687,
-  "1574650800000": 45694,
-  "1574654400000": 40698,
-  "1574658000000": 21032,
-  "1574661600000": 40284,
-  "1574665200000": 45694,
-  "1574668800000": 42294,
-  "1574672400000": 19839,
-  "1574676000000": 143416,
-  "1574679600000": 113122,
-  "1574683200000": 595387
-}`
+Example: `200` `{"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}`
 
 ### Group
 `GET /group-consumption-history/begin/$begin/end/$end/tics/$tics`
@@ -130,11 +114,11 @@ Parameters:
 Shows the history of consumption of the given time interval.
 
 Returns:
-- `200` `{"consumed": float[], "produced": float[]}` or `204` `{}` if there is no history.
-- *consumed*: An array of values where each one stands for the total power consumed at the time.
-- *produced*: An array of values where each one stands for the total power produced at the time.
+- `200` `{"consumed": string => int, "produced": string => int}` or `204` `{}` if there is no history.
+- *consumed*: A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
+- *produced*: A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
 
-Example: {"consumed": [2903.0, 2903.1, ..., 1523.0], "produced": [1234.5, 1234.0, ..., 1523.9]}
+Example: `{"consumed": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}, "produced": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}}`
 
 ## Profile
 ### List profile
@@ -142,8 +126,8 @@ Example: {"consumed": [2903.0, 2903.1, ..., 1523.0], "produced": [1234.5, 1234.0
 Parameters: none
 
 Gets the user's profile.
-
-Returns: `200` `{"name": string, "firstname": string, "nick": string, "flatSize": int, "flatPopulation": int, "groupAddress": string, "mail": string, "avatar": string }`
+Returns: `200` `{"id": int, "name": string, "firstName": string, "nick": string, "flatSize": int, "flatPopulation": int, "groupAddress": string, "mail": string, "avatar": string}`
+- *id*: The user's id.
 - *name*: The user's name.
 - *firstName*: The user's first name.
 - *nick*: The user's nick name.
