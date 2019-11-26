@@ -116,7 +116,7 @@ Parameters:
 Shows the history of consumption of the given time interval.
 
 Returns:
-- `200` `{"consumed": string => int, "produced": string => int}` or `204` `{}` if there is no history.
+- `200` `{"consumed": string => int, "produced": string => int}` or `206` `{}` if there is no history.
 - *consumed*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 - *produced*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 
