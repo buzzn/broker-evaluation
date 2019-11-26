@@ -120,7 +120,7 @@ Returns:
 - *consumed*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 - *produced*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 
-Example: `{"consumed": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}, "produced": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}}`
+Example: `200 {"consumed": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}, "produced": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}}`
 
 ## Profile
 ### List profile
