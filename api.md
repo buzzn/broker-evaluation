@@ -107,6 +107,7 @@ Example: `200` `{"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 15
 
 ### Group
 `GET /group-consumption-history?begin=$begin&end=$end&tics=$tics`
+
 Parameters:
 - *begin*: `int` Start time of consumption. Default is today at 0:00.
 - *end*: `int` End time of consumption. Default is $now.
