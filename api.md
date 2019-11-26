@@ -96,28 +96,28 @@ Returns: `200` if the challenge was quitted
 Parameters:
 - *begin*: `int` Start time of consumption. Default is today at 0:00.
 - *end*: `int` End time of consumption. Default is $now.
-- *tics*: `str` Time distance between readings with possible values 'raw', 'three_minutes', 'fifteen_minutes', 'one_hour', 'one_day', 'one_week', 'one_month', 'one_year', default is 'three_minutes'.
+- *tics*: `str` Time distance between readings with possible values 'raw', 'three_minutes', 'fifteen_minutes', 'one_hour', 'one_day', 'one_week', 'one_month', 'one_year'. Default is 'three_minutes'.
 
 Shows the history of consumption of the given time interval.
 
-Returns: `200` `string => int` A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
+Returns: `200` `string => int` A dictionary (JSON object) where each meter reading is mapped to its point in time.
          or `206` `{}` if there is no history.
 
 Example: `200` `{"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}`
 
 ### Group
-`GET /group-consumption-history/begin/$begin/end/$end/tics/$tics`
+`GET /group-consumption-history?begin=$begin&end=$end&tics=$tics`
 Parameters:
-- *begin*:`string` Start time of consumption. Default is today at 0:00.
-- *end*:`string` End time of consumption. Default is $now.
-- *tics*:`int` Interval time in seconds. Default is 60.
+- *begin*: `int` Start time of consumption. Default is today at 0:00.
+- *end*: `int` End time of consumption. Default is $now.
+- *tics*: `str` Time distance between readings with possible values 'raw', 'three_minutes', 'fifteen_minutes', 'one_hour', 'one_day', 'one_week', 'one_month', 'one_year'. Default is 'three_minutes'. 
 
 Shows the history of consumption of the given time interval.
 
 Returns:
 - `200` `{"consumed": string => int, "produced": string => int}` or `204` `{}` if there is no history.
-- *consumed*: A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
-- *produced*: A dictionary(JSON-Object) where each meter reading is mapped to their point in time.
+- *consumed*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
+- *produced*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 
 Example: `{"consumed": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}, "produced": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}}`
 
