@@ -122,6 +122,20 @@ Returns:
 
 Example: `200 {"consumed": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}, "produced": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}}`
 
+## Disaggregation 
+### User
+`GET /individual-disaggregation?begin=$begin&end=$end`
+
+Parameters: 
+- *begin*: `int` Start time of disaggregation. Default is 48h back in time. 
+- *end*: `int` End time of disaggregation. Default is $now.
+
+Shows the power curve disaggregation of the given time interval.
+
+Returns: `200` `{string => {string => int}}` or `206` `{}` if there is no history.
+
+Example: `200` `{"1574101800000": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "Durchlauferhitzer-2": 0, "Durchlauferhitzer-3": 0, "Grundlast-1": 2500000, "Durchlauferhitzer-1": 0}}`
+
 ## Profile
 ### List profile
 `GET /profile`
