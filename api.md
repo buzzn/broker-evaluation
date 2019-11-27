@@ -136,6 +136,19 @@ Returns: `200` `{string => {string => int}}` or `206` `{}` if there is no histor
 
 Example: `200` `{"1574101800000": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "Durchlauferhitzer-2": 0, "Durchlauferhitzer-3": 0, "Grundlast-1": 2500000, "Durchlauferhitzer-1": 0}}`
 
+### Group 
+`GET /group-disaggregation?begin=$begin&end=$end`
+
+Parameters: 
+- *begin*: `int` Start time of disaggregation. Default is 48h back in time. 
+- *end*: `int` End time of disaggregation. Default is $now. 
+
+Shows the power curve disaggregation of the given time interval.
+
+Returns: `200` `{string => {string => int}}` or `206` `{}` if there is no history. 
+
+Example: `200` `{"1574101800000": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "Durchlauferhitzer-2": 0, "Durchlauferhitzer-3": 0, "Grundlast-1": 2500000, "Durchlauferhitzer-1": 0}}`
+
 ## Profile
 ### List profile
 `GET /profile`
@@ -166,7 +179,6 @@ Sets the user's profile stats.
 Returns:
 - `200` If the validation passed or
 - `400` `{ErrorObject}` {ErrorObject} If the validation failed
-
 
 ### Set password
 `POST /set-password`
