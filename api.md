@@ -229,8 +229,6 @@ The Websocket times out after 2 Minutes.
     "groupProduction": int,
     "selfSufficiency": int,
     "usersConsumption": {"id": string, "consumption": int} [],
-    "userDevices": {"icon": string, "name": string, "level": int} [],
-    "groupDevices": {"icon": string, "name": string, "level": int} []
 }
 ```
 Each object represents one reading of the meters.
@@ -241,11 +239,3 @@ Each object represents one reading of the meters.
 - *usersConsumption*: `{"id": string, "consumption": int} []` Consumption of each user in the group.
   - *id*: `string` The user's id.
   - *consumption*: `int` User's overall consumption.
-- *userDevices*: `{"icon": string, "name": string, "level": int} []` Detected power consuming devices which belong to the user.
-  - *icon*: `string` Device icon.
-  - *name*: `string` Device name.
-  - *level*: `int` Amount of consumed power. (To be defined).
-- *groupDevices*: `{"icon": string, "name": string, "level": int} []` Detected power consuming devices which belong to the group.
-  - *icon*: `string` Device icon.
-  - *name*: `string` Device name.
-  - *level*: `int` Amount of consumed power. (To be defined).
