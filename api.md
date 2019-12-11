@@ -219,7 +219,7 @@ Returns:`200` `{"id": int, "avatar": string, "position": int, "name": string, "v
 
 
 ## Live data via websocket
-`GET /live`.
+Address: `ws:BASEURL/live`.
 
 The Websocket times out after 2 Minutes.
 ```javascript
