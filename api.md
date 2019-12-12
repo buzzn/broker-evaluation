@@ -155,7 +155,7 @@ Example: `200` `{"1574101800000": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "
 Parameters: none
 
 Gets the user's profile.
-Returns: `200` `{"id": int, "name": string, "firstName": string, "nick": string, "flatSize": int, "flatPopulation": int, "groupAddress": string, "mail": string, "avatar": string}`
+Returns: `200` `{"id": int, "name": string, "firstName": string, "nick": string, "flatSize": float, "inhabitants": int, "groupAddress": string, "mail": string, "avatar": string}`
 - *id*: The user's id.
 - *name*: The user's name.
 - *firstName*: The user's first name.
@@ -163,15 +163,15 @@ Returns: `200` `{"id": int, "name": string, "firstName": string, "nick": string,
 - *groupAddress*: The user's address.
 - *mail*: The user's mail address.
 - *flatSize*: The user's flat size in m^2
-- *flatPopulation*: The number of people living in the flat.
+- *inhabitants*: The number of people living in the flat.
 - *avatar*: The user's avatar encoded in base64.
 
 ### Update  profile
 `PUT /profile`
 Parameters:
-- *nick*: The user's nick name.
+- *name*: The user's name.
 - *flatSize*: The user's flat size in m^2
-- *flatPopulation*: The number of people living in the flat.
+- *inhabitants*: The number of people living in the flat.
 - *avatar*: The user's avatar encoded in base 64.
 
 Sets the user's profile stats.
