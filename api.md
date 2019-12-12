@@ -8,7 +8,7 @@ We use POSIX time for all date/time values.
 ### Login
 `POST /login`
 Parameters:
-- `user` string The account's username.
+- `user` string The account's mail address.
 - `password` string The account's password.
 
 Returns:
