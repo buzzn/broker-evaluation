@@ -219,7 +219,9 @@ Returns:`200` `{"id": int, "avatar": string, "position": int, "name": string, "v
 
 
 ## Live data via websocket
-Address: `ws:BASEURL/live`.
+`GET /live`
+Parameter:
+- *meter_id*: `string` the user's meter id
 
 The Websocket times out after 2 Minutes.
 ```javascript
