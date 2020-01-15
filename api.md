@@ -7,6 +7,7 @@ We use POSIX time for all date/time values.
 ## User login
 ### Login
 `POST /login`
+
 Parameters:
 - `user` string The account's mail address.
 - `password` string The account's password.
@@ -20,11 +21,14 @@ Returns:
 
 ### Logout
 `Get /logout`
+
 Parameters: none
 
 Invalidates the user's session.
 
-Returns: `200` `{}` If the user was logged in and the session was invalidated.
+Returns: 
+
+`200 {}` if the user was logged in and the session was invalidated.
 
 ## Hints
 ### Get all hints
