@@ -20,7 +20,7 @@ Returns:
 `401 {errorObject}` if username does not exist or password is incorrect.
 
 ### Logout
-`Get /logout`
+`GET /logout`
 
 Parameters: none
 
@@ -33,11 +33,14 @@ Returns:
 ## Hints
 ### Get all hints
 `GET /hints`
+
 Parameters: none
 
 Gets all the hints how to save power available for the user.
 
-Returns: `200` `{"icon": string, "headline": string, "description": string}[]`
+Returns: 
+
+`200 {"icon": string, "headline": string, "description": string}[]`
 
 ### Mark hint read
 `POST /hint/mark-read/$id`
