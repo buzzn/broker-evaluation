@@ -14,7 +14,7 @@ Parameters:
 Returns:
 
 `200 {"sessionToken": string}` if username exists and password is correct.
-    -  `sessionToken` string The session token.
+- `sessionToken` string The session token.
 
 `401 {errorObject}` if username does not exist or password is incorrect.
 
