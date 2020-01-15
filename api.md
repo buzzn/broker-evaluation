@@ -108,7 +108,7 @@ Parameters:
 
 Returns: `200 string => int`, a dictionary (JSON object) where each meter reading is mapped to its point in time or `206 {}` if there is no history.
 
-Example: `200 {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}`
+Example: `200 {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}`
 
 ### Group
 `GET /group-consumption-history?begin=$begin&end=$end&tics=$tics`
@@ -123,7 +123,7 @@ Returns: `200 {"consumed": string => int, "produced": string => int}` or `206` `
 - *consumed*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 - *produced*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 
-Example: `200 {"consumed": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}, "produced": {"1574684336": 45322, 1574684346": 45352, 1574684356": 45422, 1574684366": 45522, ...}}`
+Example: `200 {"consumed": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}, "produced": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}}`
 
 ## Disaggregation 
 ### User
@@ -136,7 +136,7 @@ Parameters:
 
 Returns: `200 {string => {string => int}}` or `206 {}` if there is no history.
 
-Example: `200` `{"1574101800000": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "Durchlauferhitzer-2": 0, "Durchlauferhitzer-3": 0, "Grundlast-1": 2500000, "Durchlauferhitzer-1": 0}}`
+Example: `200` `{"2020-01-15 10:01:10": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "Durchlauferhitzer-2": 0, "Durchlauferhitzer-3": 0, "Grundlast-1": 2500000, "Durchlauferhitzer-1": 0}}`
 
 ### Group 
 `GET /group-disaggregation?begin=$begin&end=$end`
@@ -148,7 +148,7 @@ Parameters:
 
 Returns: `200 {string => {string => int}}` or `206 {}` if there is no history. 
 
-Example: `200 {"1574101800000": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "Durchlauferhitzer-2": 0, "Durchlauferhitzer-3": 0, "Grundlast-1": 2500000, "Durchlauferhitzer-1": 0}}`
+Example: `200 {"2020-01-15 10:01:10": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "Durchlauferhitzer-2": 0, "Durchlauferhitzer-3": 0, "Grundlast-1": 2500000, "Durchlauferhitzer-1": 0}}`
 
 ## Profile
 ### List profile
