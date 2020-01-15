@@ -84,7 +84,7 @@ Returns: `200 {"id": int, "progress": float, "expiresAt": int, "status": "runnin
 - *expiresAt*: Seconds left until the challenge ends.
 - *status*: Indicates the challenge's state, i.e. running, failed or succeeded.
 
-Example one challenge running: `200 {"id": 1, "progress": 0.8, "expiresAt": 72032, "status": "running"}`
+Example with one challenge running: `200 {"id": 1, "progress": 0.8, "expiresAt": 72032, "status": "running"}`
 
 ### Quit a challenge.
 `POST /challenges/quit`
@@ -119,8 +119,7 @@ Parameters:
 - `end` (int): End time of consumption. Default is $now.
 - `tics` (str): Time distance between readings with possible values 'raw', 'three_minutes', 'fifteen_minutes', 'one_hour', 'one_day', 'one_week', 'one_month', 'one_year'. Default is 'three_minutes'. 
 
-Returns:
-- `200 {"consumed": string => int, "produced": string => int}` or `206` `{}` if there is no history.
+Returns: `200 {"consumed": string => int, "produced": string => int}` or `206` `{}` if there is no history.
 - *consumed*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 - *produced*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
 
@@ -179,7 +178,7 @@ Parameters:
 - `inhabitants`: The number of people living in the flat.
 - `avatar`: The user's avatar encoded in base 64.
 
-Returns: `200` if the validation passed or `400 {ErrorObject}` {ErrorObject} If the validation failed
+Returns: `200` if the validation passed or `400 {ErrorObject}` if the validation failed.
 
 ### Set password
 `POST /set-password`
@@ -199,7 +198,7 @@ Sets a new password.
 Parameter:
 - `password` (string): Password to set.
 
-Returns: `200` if the new password passes the validation or `400 {ErrorObject}` if the new passward fails the validation.
+Returns: `200` if the new password passes the validation or `400 {ErrorObject}` if the new password fails the validation.
 
 ## Community chart
 `GET /hitlist`
@@ -217,7 +216,7 @@ Returns: `200 {"id": int, "avatar": string, "position": int, "name": string, "va
 
 ## Live data via websocket
 `GET /live`
-The Websocket times out after 2 Minutes.
+The Websocket times out after 2 minutes.
 
 Parameters:
 - `meter_id` (string): The user's meter id.
