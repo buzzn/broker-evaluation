@@ -44,12 +44,18 @@ Returns:
 
 ### Mark hint read
 `POST /hint/mark-read/$id`
-Parameters: `id` int The id of the read hint.
+
+Parameters: 
+
+`id` int The id of the read hint.
 
 Marks the given hint as read by the user.
 
-Returns: `202` If the hint exists and was marked read.
-        `404` `{ErrorObject}` If the hint does not exist.
+Returns:
+ 
+`202` if the hint exists and was marked read.
+
+`404 {ErrorObject}` if the hint does not exist.
 
 ## Challenges
 ### List available challenges
