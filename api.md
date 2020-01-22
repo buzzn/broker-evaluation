@@ -19,6 +19,7 @@ Returns:
 
 ### Logout
 `GET /logout`
+
 Invalidates the user's session.
 
 Parameters: none
@@ -30,6 +31,7 @@ Returns:
 ## Hints
 ### Get all hints
 `GET /hints`
+
 Gets all the hints how to save power available for the user.
 
 Parameters: none
@@ -40,6 +42,7 @@ Returns:
 
 ### Mark hint read
 `POST /hint/mark-read/$id`
+
 Marks the given hint as read by the user.
 
 Parameters: 
@@ -52,6 +55,7 @@ Returns:
 ## Challenges
 ### List available challenges
 `GET /challenges`
+
 Gets all the challenges available for the user.
 
 Parameters: none
@@ -65,6 +69,7 @@ Returns: `200 {"id": int, "name": string, "description": string, "total": int, "
 
 ### Start a challenge
 `GET /challenges/start/$id`
+
 Starts the specified challenge.
 
 Parameters: 
@@ -74,6 +79,7 @@ Returns: `200 {}` or `404 {ErrorObject}` if the `id` is not valid.
 
 ### Get status of running challenge(s)
 `GET /challenges/status`
+
 Shows the current running challenge.
 
 Parameters: none
@@ -88,6 +94,7 @@ Example with one challenge running: `200 {"id": 1, "progress": 0.8, "expiresAt":
 
 ### Quit a challenge.
 `POST /challenges/quit`
+
 Quits a challenge. This can be used to abort a running challenge or
 acknowledge the failure or success of a ended challenge.
 
@@ -99,6 +106,7 @@ Returns: `200` if the challenge was quit, `404` if no such challenge is running,
 ## Consumption usage history
 ### User
 `GET /individual-consumption-history?begin=$begin`
+
 Shows the history of consumption from the given starting point.
 
 Parameters:
@@ -110,6 +118,7 @@ Example: `200 {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020
 
 ### Group
 `GET /group-consumption-history?begin=$begin`
+
 Shows the history of consumption from the given starting point.
 
 Parameters:
@@ -124,6 +133,7 @@ Example: `200 {"consumed": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10":
 ## Disaggregation 
 ### User
 `GET /individual-disaggregation?begin=$begin`
+
 Shows the power curve disaggregation from the given starting point.
 
 Parameters: 
@@ -135,6 +145,7 @@ Example: `200` `{"2020-01-15 10:01:10": {"Waschmaschine-1": 0, "Spülmaschine-1"
 
 ### Group 
 `GET /group-disaggregation?begin=$begin`
+
 Shows the power curve disaggregation from the given starting point.
 
 Parameters: 
@@ -147,6 +158,7 @@ Example: `200 {"2020-01-15 10:01:10": {"Waschmaschine-1": 0, "Spülmaschine-1": 
 ## Profile
 ### List profile
 `GET /profile`
+
 Gets the user's profile.
 
 Parameters: none
@@ -164,6 +176,7 @@ Returns: `200 {"id": int, "name": string, "firstName": string, "nick": string, "
 
 ### Update  profile
 `PUT /profile`
+
 Sets the user's profile stats.
 
 Parameters:
@@ -176,6 +189,7 @@ Returns: `200` if the validation passed or `400 {ErrorObject}` if the validation
 
 ### Set password
 `POST /set-password`
+
 Sets an initial password. Does not require the user to be logged in.
 
 Parameters:
@@ -187,6 +201,7 @@ Returns:
 
 ### Update password
 `PUT /update-password`
+
 Sets a new password.
 
 Parameter:
@@ -196,6 +211,7 @@ Returns: `200` if the new password passes the validation or `400 {ErrorObject}` 
 
 ## Community chart
 `GET /hitlist`
+
 Shows the group's hitlist.
 
 Parameters: none
@@ -210,6 +226,7 @@ Returns: `200 {"id": int, "avatar": string, "position": int, "name": string, "va
 
 ## Live data via websocket
 `GET /live`
+
 The Websocket times out after 2 minutes.
 
 Parameters:
