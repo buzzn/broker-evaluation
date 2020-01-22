@@ -98,26 +98,22 @@ Returns: `200` if the challenge was quit, `404` if no such challenge is running,
 
 ## Consumption usage history
 ### User
-`GET /individual-consumption-history?begin=$begin&end=$end&tics=$tics`
-Shows the history of consumption of the given time interval.
+`GET /individual-consumption-history?begin=$begin`
+Shows the history of consumption from the given starting point.
 
 Parameters:
-- `begin` (int): Start time of consumption. Default is today at 0:00.
-- `end` (int): End time of consumption. Default is $now.
-- `tics` (str): Time distance between readings with possible values 'raw', 'three_minutes', 'fifteen_minutes', 'one_hour', 'one_day', 'one_week', 'one_month', 'one_year'. Default is 'three_minutes'.
+- `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
 
 Returns: `200 string => int`, a dictionary (JSON object) where each meter reading is mapped to its point in time or `206 {}` if there is no history.
 
 Example: `200 {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}`
 
 ### Group
-`GET /group-consumption-history?begin=$begin&end=$end&tics=$tics`
-Shows the history of consumption of the given time interval.
+`GET /group-consumption-history?begin=$begin`
+Shows the history of consumption from the given starting point.
 
 Parameters:
-- `begin` (int): Start time of consumption. Default is today at 0:00.
-- `end` (int): End time of consumption. Default is $now.
-- `tics` (str): Time distance between readings with possible values 'raw', 'three_minutes', 'fifteen_minutes', 'one_hour', 'one_day', 'one_week', 'one_month', 'one_year'. Default is 'three_minutes'. 
+- `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
 
 Returns: `200 {"consumed": string => int, "produced": string => int}` or `206` `{}` if there is no history.
 - *consumed*: A dictionary (JSON object) where each meter reading is mapped to its point in time.
@@ -127,24 +123,22 @@ Example: `200 {"consumed": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10":
 
 ## Disaggregation 
 ### User
-`GET /individual-disaggregation?begin=$begin&end=$end`
-Shows the power curve disaggregation of the given time interval.
+`GET /individual-disaggregation?begin=$begin`
+Shows the power curve disaggregation from the given starting point.
 
 Parameters: 
-- `begin` (int): Start time of disaggregation. Default is 48h back in time. 
-- `end` (int): End time of disaggregation. Default is $now.
+- `begin` (float): Start time of disaggregation as unix timestamp. Default is 48h back in time. 
 
 Returns: `200 {string => {string => int}}` or `206 {}` if there is no history.
 
 Example: `200` `{"2020-01-15 10:01:10": {"Waschmaschine-1": 0, "Spülmaschine-1": 0, "Durchlauferhitzer-2": 0, "Durchlauferhitzer-3": 0, "Grundlast-1": 2500000, "Durchlauferhitzer-1": 0}}`
 
 ### Group 
-`GET /group-disaggregation?begin=$begin&end=$end`
-Shows the power curve disaggregation of the given time interval.
+`GET /group-disaggregation?begin=$begin`
+Shows the power curve disaggregation from the given starting point.
 
 Parameters: 
-- `begin` (int): Start time of disaggregation. Default is 48h back in time. 
-- `end` (int): End time of disaggregation. Default is $now. 
+- `begin` (float): Start time of disaggregation as unix timestamp. Default is 48h back in time. 
 
 Returns: `200 {string => {string => int}}` or `206 {}` if there is no history. 
 
