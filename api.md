@@ -173,6 +173,7 @@ Returns: `200 {"id": int, "name": string, "firstName": string, "nick": string, "
 - *flatSize*: The user's flat size in m^2.
 - *inhabitants*: The number of people living in the flat.
 - *avatar*: The user's avatar encoded in base64.
+- *meterId*: The id of the user's meter.
 
 ### Update  profile
 `PUT /profile`
