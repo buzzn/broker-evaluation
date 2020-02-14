@@ -224,6 +224,29 @@ Returns: `200 {"id": int, "avatar": string, "position": int, "name": string, "va
 - `name` (string): The user's name of the position.
 - `value` (string): The user's value to be compared. May return an error.
 
+## Global challenge
+### Individual global challenge
+`GET /individual-global-challenge`
+
+Shows the individual saving prognosis for today in µWh.
+
+Parameters: none
+
+Returns: `200 {string => float}` or `206 {}` if there is no history.
+
+Example: `200 {"2020-01-15 10:01:10": 3148577026610.7812}`
+
+### Community global challenge
+`GET /community-global-challenge`
+
+Shows the community saving prognosis for today in µWh.
+
+Parameters: none
+
+Returns: `200 {string => float}` or `206 {}` if there is no history.
+
+Example: `200 {"2020-02-13 16:20:21": 85184267259376.5}`
+
 ## Live data via websocket
 `GET /live`
 
@@ -243,8 +266,8 @@ Parameters:
 ```
 Each object represents one reading of the meters.
 - *date* (date): Time of the reading.
-- *groupConsumption* (int): The overall group consumption in mWh.
-- *groupProduction* (int): The overall group production in mWh.
+- *groupConsumption* (int): The overall group consumption in µWh.
+- *groupProduction* (int): The overall group production in µWh.
 - *selfSufficiency* (int): Self-sufficiency of the user.
 - *usersConsumption*: (`{"id": string, "consumption": int} []`): Consumption of each user in the group.
 - *id* (string): The user's id.
