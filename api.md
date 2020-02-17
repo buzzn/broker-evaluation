@@ -1,6 +1,6 @@
 # Broker Api
 Each call returns the HTTP code `200` or an HTTP error code with an optional error object: `{"errorName": string, "errorDescription": string}`.
-Attention: Each call requires a logged-in user! The session token is sent via the according authorization header (exception: `/set-password`).
+Attention: Most calls require a logged-in user! The session token is sent via the according authorization header (exceptions: `/set-password`, `/community-global-challenge`).
 If the session has expired, each request will result in a `401` error code and an according error object.
 We use POSIX time for all date/time values.
 
@@ -96,7 +96,7 @@ Example with one challenge running: `200 {"id": 1, "progress": 0.8, "expiresAt":
 `POST /challenges/quit`
 
 Quits a challenge. This can be used to abort a running challenge or
-acknowledge the failure or success of a ended challenge.
+acknowledge the failure or success of an ended challenge.
 
 Parameters: 
 - `id` (int): The id of the challenge to quit.
