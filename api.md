@@ -257,8 +257,8 @@ Parameters:
 ```javascript
 {
     "date": date,
-    "groupConsumption": int,
-    "groupProduction": int,
+    "group_consumption": int,
+    "group_production": int,
     "hitlist": {
 	"id": string, 
 	"meter_id": string,
@@ -266,7 +266,7 @@ Parameters:
 	"self_sufficiency": float} [],
 }
 ```
-Each object represents one reading of the meters.
+Each object represents one reading of the database.
 - *date* (date): Time of the reading.
 - *group_consumption* (int): The overall group consumption in µWh.
 - *group_production* (int): The overall group production in µWh.
