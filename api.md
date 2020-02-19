@@ -251,8 +251,6 @@ Example: `200 {"2020-02-13 16:20:21": 85184267259376.5}`
 ## Live data via websocket
 `GET /live`
 
-The Websocket times out after 2 minutes.
-
 Parameters:
 - `meter_id` (string): The user's meter id.
 
@@ -261,15 +259,15 @@ Parameters:
     "date": date,
     "groupConsumption": int,
     "groupProduction": int,
-    "selfSufficiency": int,
-    "usersConsumption": {"id": string, "consumption": int} [],
+    "hitlist": {
+	"id": string, 
+	"meter_id": string,
+	"consumption": int, 
+	"self_sufficiency": float} [],
 }
 ```
 Each object represents one reading of the meters.
 - *date* (date): Time of the reading.
-- *groupConsumption* (int): The overall group consumption in µWh.
-- *groupProduction* (int): The overall group production in µWh.
-- *selfSufficiency* (int): Self-sufficiency of the user.
-- *usersConsumption*: (`{"id": string, "consumption": int} []`): Consumption of each user in the group.
-- *id* (string): The user's id.
-- *consumption* (int): The user's overall consumption.
+- *group_consumption* (int): The overall group consumption in µWh.
+- *group_production* (int): The overall group production in µWh.
+- *hitlist*: (`{"id": string, "meter_id": string, "consumption": int, "self_sufficiency": float} []`): ID, meter ID, consumption and self-sufficiency of each user in the group.
