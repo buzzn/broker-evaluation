@@ -259,7 +259,7 @@ Parameters:
     "date": date,
     "group_consumption": int,
     "group_production": int,
-    "hitlist": {
+    "group_users": {
 	"id": string, 
 	"meter_id": string,
 	"consumption": int, 
