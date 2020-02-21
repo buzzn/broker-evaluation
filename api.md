@@ -229,13 +229,13 @@ Returns: `200 {"id": int, "avatar": string, "position": int, "name": string, "va
 ### Individual global challenge
 `GET /individual-global-challenge`
 
-Shows the individual saving prognosis for today in µWh.
+Shows the individual saving prognosis for today in µWh and the individual baseline value in µWh.
 
 Parameters: none
 
-Returns: `200 {string => float}` or `206 {}` if there is no history.
+Returns: `200 {"saving": {string => float}, "baseline": {string => int}` or `206 {}` if there is no history.
 
-Example: `200 {"2020-01-15 10:01:10": 3148577026610.7812}`
+Example: `200 {"saving": {"2020-01-15 10:01:10": 3148577026610.7812}, "baseline": {"2020-02-21 09:40:04": 53011346257574}}`
 
 ### Community global challenge
 `GET /community-global-challenge`
