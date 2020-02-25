@@ -270,4 +270,4 @@ Each object represents one reading of the database.
 - *date* (date): Time of the reading.
 - *group_consumption* (int): The overall group consumption in µWh.
 - *group_production* (int): The overall group production in µWh.
-- *hitlist*: (`{"id": string, "meter_id": string, "consumption": int, "self_sufficiency": float} []`): ID, meter ID, consumption and self-sufficiency of each user in the group.
+- *hitlist* (`{"id": string, "meter_id": string, "consumption": int, "self_sufficiency": float} []`): ID, meter ID, consumption and self-sufficiency of each user in the group.
