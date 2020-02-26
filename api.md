@@ -264,10 +264,9 @@ Parameters:
 }
 ```
 Each object represents one reading of the database.
-- *date* (date): Time of the reading.
-- *group_consumption* (int): The overall group consumption in µWh.
-- *group_production* (int): The overall group production in µWh.
-- *group_users* (`{"id": string, "meter_id": string, "consumption": int, "power": int, "self_sufficiency": float} []`): 
-ID, meter ID, consumption, power and self-sufficiency of each user in the group. 
+- *date*: Time of the reading.
+- *group_consumption*: The overall group consumption in µWh.
+- *group_production*: The overall group production in µWh.
+- *group_users*: ID, meter ID, consumption, power and self-sufficiency of each user in the group. 
 'consumption' is given in µWh, 'power' in 'µW'. 
 'self_sufficiency' is a float value between 0 and 1 where smaller values are considered to be better.
