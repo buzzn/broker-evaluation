@@ -1,4 +1,4 @@
-# Broker Api
+# Broker API
 Each call returns the HTTP code `200` or an HTTP error code with an optional error object: `{"errorName": string, "errorDescription": string}`.
 Attention: Most calls require a logged-in user! The session token is sent via the according authorization header (exceptions: `/set-password`, `/community-global-challenge`).
 If the session has expired, each request will result in a `401` error code and an according error object.
@@ -92,7 +92,7 @@ Returns: `200 {"id": int, "progress": float, "expiresAt": int, "status": "runnin
 
 Example with one challenge running: `200 {"id": 1, "progress": 0.8, "expiresAt": 72032, "status": "running"}`
 
-### Quit a challenge.
+### Quit a challenge
 `POST /challenges/quit`
 
 Quits a challenge. This can be used to abort a running challenge or
@@ -210,20 +210,18 @@ Parameter:
 
 Returns: `200` if the new password passes the validation or `400 {ErrorObject}` if the new password fails the validation.
 
-## Community chart
-`GET /hitlist`
+## Leaderboard Pro-Kopf-Verbrauch
+`GET /leaderboard`
 
-Shows the group's hitlist.
+Shows the group's leader board.
 
 Parameters: none
 
-Returns: `200 {"id": int, "avatar": string, "position": int, "name": string, "value": string}[]`
-- `id` (int): The user's id.
+Returns: `200 {avatar": string, "position": int, "name": string, "pkv": string}[]`
 - `avatar`: The user's avatar encoded in base64.
-- `icon` (string): The group icon.
-- `position` (int): The hitlist position of the entry.
-- `name` (string): The user's name of the position.
-- `value` (string): The user's value to be compared. May return an error.
+- `position` (int): The leader board position of the entry.
+- `name` (string): The user's name at the position.
+- `pkv` (string): The user's pkv (Pro-Kopf-Verbrauch) value in kWh. May return an error.
 
 ## Global challenge
 ### Individual global challenge
@@ -263,6 +261,7 @@ Parameters:
 	"id": string, 
 	"meter_id": string,
 	"consumption": int, 
+	"power": int,
 	"self_sufficiency": float} [],
 }
 ```
@@ -270,4 +269,7 @@ Each object represents one reading of the database.
 - *date* (date): Time of the reading.
 - *group_consumption* (int): The overall group consumption in µWh.
 - *group_production* (int): The overall group production in µWh.
-- *hitlist* (`{"id": string, "meter_id": string, "consumption": int, "self_sufficiency": float} []`): ID, meter ID, consumption and self-sufficiency of each user in the group.
+- *group_users* (`{"id": string, "meter_id": string, "consumption": int, "power": int, "self_sufficiency": float} []`): 
+ID, meter ID, consumption, power and self-sufficiency of each user in the group. 
+'consumption' is given in µWh, 'power' in 'µW'. 
+'self_sufficiency' is a float value between 0 and 1 where smaller values are considered to be better.
