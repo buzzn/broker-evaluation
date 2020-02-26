@@ -184,7 +184,7 @@ Parameters:
 - `flatSize` (optional): The user's flat size in m^2.
 - `inhabitants` (optional): The number of people living in the flat.
 - `nick` (optional): The user's nick name.
-- `avatar` (optional): The user's avatar encoded in base 64.
+- `avatar` (optional): The user's avatar encoded in base64.
 
 Returns: `200` if the validation passed or `400 {ErrorObject}` if the validation failed.
 
