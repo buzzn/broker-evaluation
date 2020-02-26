@@ -268,5 +268,5 @@ Each object represents one reading of the database.
 - *group_consumption*: The overall group consumption in µWh.
 - *group_production*: The overall group production in µWh.
 - *group_users*: ID, meter ID, consumption, power and self-sufficiency of each user in the group. 
-'consumption' is given in µWh, 'power' in 'µW'. 
-'self_sufficiency' returns a value between 0 and 1 where smaller values are considered to be better.
+*consumption* is given in µWh, *power* in µW. 
+*self_sufficiency* returns a value between 0 and 1 where smaller values are considered to be better.
