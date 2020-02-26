@@ -40,7 +40,7 @@ Returns:
 
 `200 {"icon": string, "headline": string, "description": string}[]`
 
-### Mark hint read
+### Mark hint as read
 `POST /hint/mark-read/$id`
 
 Marks the given hint as read by the user.
@@ -181,10 +181,10 @@ Returns: `200 {"id": int, "name": string, "firstName": string, "nick": string, "
 Sets the user's profile stats.
 
 Parameters:
-- `name`: The user's name.
-- `flatSize`: The user's flat size in m^2.
-- `inhabitants`: The number of people living in the flat.
-- `avatar`: The user's avatar encoded in base 64.
+- `flatSize` (optional): The user's flat size in m^2.
+- `inhabitants` (optional): The number of people living in the flat.
+- `nick` (optional): The user's nick name.
+- `avatar` (optional): The user's avatar encoded in base 64.
 
 Returns: `200` if the validation passed or `400 {ErrorObject}` if the validation failed.
 
