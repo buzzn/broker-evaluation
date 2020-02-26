@@ -210,18 +210,16 @@ Parameter:
 
 Returns: `200` if the new password passes the validation or `400 {ErrorObject}` if the new password fails the validation.
 
-## Leaderboard Pro-Kopf-Verbrauch
-`GET /leaderboard`
+## Group profile pictures
+`GET /assets/group-profile-pictures`
 
-Shows the group's leader board.
+Shows the profile pictures of the user's group.
 
 Parameters: none
 
-Returns: `200 {avatar": string, "position": int, "name": string, "pkv": string}[]`
+Returns: `200 {"id": int, "avatar": string}[]` or `400 {ErrorObject}`/`206 {ErrorObject}` if group member query/avatar query fails.
+- `id`: The user's id.
 - `avatar`: The user's avatar encoded in base64.
-- `position` (int): The leader board position of the entry.
-- `name` (string): The user's name at the position.
-- `pkv` (string): The user's pkv (Pro-Kopf-Verbrauch) value in kWh. May return an error.
 
 ## Global challenge
 ### Individual global challenge
