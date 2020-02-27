@@ -112,7 +112,7 @@ Shows the history of consumption of power from the given starting point.
 Parameters:
 - `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
 
-Returns: `200 string => int`, a dictionary (JSON object) where each power consumption(mW) is mapped to its point in time or `206 {}` if there is no history.
+Returns: `200 string => int`, a dictionary (JSON object) where each power consumption (mW) is mapped to its point in time or `206 {}` if there is no history.
 
 Example: `200 {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}`
 
@@ -125,8 +125,8 @@ Parameters:
 - `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
 
 Returns: `200 {"consumed": string => int, "produced": string => int}` or `206` `{}` if there is no history.
-- *consumed*: A dictionary (JSON object) where each power consumption(mW) is mapped to its point in time.
-- *produced*: A dictionary (JSON object) where each meter reading(µWh) is mapped to its point in time.
+- *consumed*: A dictionary (JSON object) where each power consumption (mW) is mapped to its point in time.
+- *produced*: A dictionary (JSON object) where each meter reading (µWh) is mapped to its point in time.
 
 Example: `200 {"consumed": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}, "produced": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}}`
 
@@ -267,6 +267,6 @@ Each object represents one reading of the database.
 - *date*: Time of the reading.
 - *group_consumption*: The overall group consumption in µWh.
 - *group_production*: The overall group production in µWh.
-- *group_users*: ID, meter ID, consumption, power and self-sufficiency of each user in the group. 
-*consumption* is given in µWh, *power* in µW. 
+- *group_users*: ID, meter ID, consumption, power (Leistung) and self-sufficiency of each user in the group. 
+*consumption* is given in µWh, *power* (Leistung) in µW. 
 *self_sufficiency* returns a value between 0 and 1 where smaller values are considered to be better.
