@@ -244,6 +244,17 @@ Returns: `200 {string => float}` or `206 {}` if there is no history.
 
 Example: `200 {"2020-02-13 16:20:21": 85184267259376.5}`
 
+## Per capita consumption
+`GET /per-capita-consumption`
+
+Shows the annualized moving average of the user's per capita consumption for today in kWh.
+
+Parameters: none
+
+Returns: `200 {string => int}` or `206 {}` if is no value.
+
+Example: `200 {'2020-03-10 17:08:24': 396932}`
+
 ## Live data via websocket
 `GET /live`
 
