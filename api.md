@@ -112,7 +112,7 @@ Shows the history of power consumption from the given starting point.
 Parameters:
 - `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
 
-Returns: `200 {'energy': string => int, 'power': string => int}` or `206 {}` if there is no history. 
+Returns: `200 {"energy": string => int, "power": string => int}` or `206 {}` if there is no history. 
 - *power*: A dictionary (JSON object) where each power consumption (mW) is mapped to its point in time.
 - *energy*: A dictionary (JSON object) where each meter reading (μWh) is mapped to its point in time.
 
@@ -127,7 +127,7 @@ Shows the history of power consumption from the given starting point.
 Parameters:
 - `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
 
-Returns: `200 {"consumed": string => int, "produced_first_meter": string => int, "produced_second_meter": string => int}` or `206` `{}` if there is no history.
+Returns: `200 {"consumed": string => int, "produced_first_meter": string => int, "produced_second_meter": string => int}` or `206 {}` if there is no history.
 - *consumed*: A dictionary (JSON object) where each power consumption (mW) is mapped to its point in time.
 - *produced_first_meter*: A dictionary (JSON object) where each power production (mW) is mapped to its point in time.
 - *produced_second_meter*: A dictionary (JSON object) where each power production (mW) is mapped to its point in time.
