@@ -107,7 +107,7 @@ Returns: `200` if the challenge was quit, `404` if no such challenge is running,
 ### User
 `GET /individual-consumption-history?begin=$begin`
 
-Shows the history of consumption of power from the given starting point.
+Shows the history of power consumption from the given starting point.
 
 Parameters:
 - `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
@@ -119,16 +119,19 @@ Example: `200 {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020
 ### Group
 `GET /group-consumption-history?begin=$begin`
 
-Shows the history of consumption of power from the given starting point.
+Shows the history of power consumption from the given starting point.
 
 Parameters:
 - `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
 
-Returns: `200 {"consumed": string => int, "produced": string => int}` or `206` `{}` if there is no history.
+Returns: `200 {"consumed": string => int, "produced_first_meter": string => int, "produced_second_meter": string => int}` or `206` `{}` if there is no history.
 - *consumed*: A dictionary (JSON object) where each power consumption (mW) is mapped to its point in time.
-- *produced*: A dictionary (JSON object) where each meter reading (µWh) is mapped to its point in time.
+- *produced_first_meter*: A dictionary (JSON object) where each power production (mW) is mapped to its point in time.
+- *produced_second_meter*: A dictionary (JSON object) where each power production (mW) is mapped to its point in time.
 
-Example: `200 {"consumed": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}, "produced": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}}`
+Example: `200 {"consumed": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}, 
+"produced_first_meter": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}, 
+"produced_second_meter": {"2020-01-15 10:01:04": 45322, "2020-01-15 10:01:10": 45352, "2020-01-15 10:01:16": 45422, "2020-01-15 10:01:20": 45522, ...}}`
 
 ## Disaggregation 
 ### User
