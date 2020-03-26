@@ -160,7 +160,7 @@ Example: `200  {
 Shows the power curve disaggregation from the given starting point.
 
 Parameters: 
-- `begin` (float): Start time of disaggregation as unix timestamp. Default is 48h back in time. 
+- `begin` (int): Start time of disaggregation as unix timestamp. Default is 48h back in time. 
 
 Returns: `200 {string => {string => int}}` or `206 {}` if there is no history.
 
@@ -172,7 +172,7 @@ Example: `200` `{"2020-01-15 10:01:10": {"Waschmaschine-1": 0, "Spülmaschine-1"
 Shows the power curve disaggregation from the given starting point.
 
 Parameters: 
-- `begin` (float): Start time of disaggregation as unix timestamp. Default is 48h back in time. 
+- `begin` (int): Start time of disaggregation as unix timestamp. Default is 48h back in time. 
 
 Returns: `200 {string => {string => int}}` or `206 {}` if there is no history. 
 
