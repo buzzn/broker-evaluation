@@ -110,11 +110,11 @@ Returns: `200` if the challenge was quit, `404` if no such challenge is running,
 Shows the history of power consumption from the given starting point.
 
 Parameters:
-- `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
+- `begin` (int): Start time of consumption as unix timestamp. Default is today at 00:00:00 am.
 
 Returns: `200 {"energy": string => int, "power": string => int}` or `206 {}` if there is no history. 
-- *power*: A dictionary (JSON object) where each power consumption (mW) is mapped to its point in time.
-- *energy*: A dictionary (JSON object) where each meter reading (μWh/10) is mapped to its point in time.
+- *power*: A dictionary (JSON object) with each power consumption (mW) mapped to its timestamp.
+- *energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
 
 Example: `200 {'energy': {'2020-01-15 10:00:04': 2180256872214000, '2020-01-15 10:01:10': 2180256872214000, ...},
 'power': {'2020-01-15 10:00:04': 0, '2020-01-15 10:01:10': 0, ...}}`
@@ -125,7 +125,7 @@ Example: `200 {'energy': {'2020-01-15 10:00:04': 2180256872214000, '2020-01-15 1
 Shows the history of power consumption from the given starting point.
 
 Parameters:
-- `begin` (float): Start time of consumption as unix timestamp. Default is today at 0:00.
+- `begin` (int): Start time of consumption as unix timestamp. Default is today at 00:00:00 am.
 
 Returns: `200 
 { 
@@ -137,12 +137,12 @@ Returns: `200
     "produced_second_meter_power": string => int
 }` 
 or `206 {}` if there is no history.
-- *consumed_energy*: A dictionary (JSON object) where each meter reading (μWh/10) is mapped to its point in time.
-- *consumed_power*: A dictionary (JSON object) where each power consumption (mW) is mapped to its point in time.
-- *produced_first_meter_energy*: A dictionary (JSON object) where each meter reading (μWh/10) is mapped to its point in time.
-- *produced_first_meter_power*: A dictionary (JSON object) where each power production (mW) is mapped to its point in time.
-- *produced-second_meter_energy*: A dictionary (JSON object) where each meter reading (μWh/10) is mapped to its point in time.
-- *produced_second_meter_power*: A dictionary (JSON object) where each power production (mW) is mapped to its point in time.
+- *consumed_energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
+- *consumed_power*: A dictionary (JSON object) with each power consumption (mW) mapped to its timestamp.
+- *produced_first_meter_energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
+- *produced_first_meter_power*: A dictionary (JSON object) with each power production (mW) mapped to its timestamp.
+- *produced_second_meter_energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
+- *produced_second_meter_power*: A dictionary (JSON object) with each power production (mW) mapped to its timestamp.
 
 Example: `200  {
     "consumed_energy": {"2020-01-15 10:00:04": 2180256872214000, "2020-01-15 10:01:10": 2180256872214000, ...},
