@@ -248,7 +248,7 @@ Returns: `200 {"id": int, "avatar": string}[]` or `400 {ErrorObject}`/`206 {Erro
 ### Individual global challenge
 `GET /individual-global-challenge`
 
-Shows the individual saving prognosis for today in µWh and the individual baseline value in µWh.
+Shows the individual saving prognosis for today in µWh/10 and the individual baseline value in µWh/10.
 
 Parameters: none
 
@@ -259,7 +259,7 @@ Example: `200 {"saving": {"2020-01-15 10:01:10": 3148577026610.7812}, "baseline"
 ### Community global challenge
 `GET /community-global-challenge`
 
-Shows the community saving prognosis for today in µWh.
+Shows the community saving prognosis for today in µWh/10.
 
 Parameters: none
 
@@ -299,8 +299,8 @@ Parameters:
 ```
 Each object represents one reading of the database.
 - *date*: Time of the reading.
-- *group_consumption*: The overall group consumption in µWh.
-- *group_production*: The overall group production in µWh.
+- *group_consumption*: The overall group consumption in µWh/10.
+- *group_production*: The overall group production in µWh/10.
 - *group_users*: ID, meter ID, consumption, power (Leistung) and self-sufficiency of each user in the group. 
-*consumption* is given in µWh, *power* (Leistung) in µW. 
+*consumption* is given in µWh/10, *power* (Leistung) in µW. 
 *self_sufficiency* returns a value between 0 and 1 where smaller values are considered to be better.
