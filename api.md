@@ -287,20 +287,20 @@ Parameters:
 ```javascript
 {
     "date": date,
-    "group_consumption": int,
     "group_production": int,
-    "group_users": {
-	"id": string, 
-	"meter_id": string,
-	"consumption": int, 
-	"power": int,
-	"self_sufficiency": float} [],
+    "group_users": [
+	{
+	    "id": string, 
+	    "meter_id": string,
+	    "consumption": int, 
+	    "power": int
+	},
+	...
+    ]
 }
 ```
 Each object represents one reading of the database.
 - *date*: Time of the reading.
-- *group_consumption*: The overall group consumption in µWh/10.
 - *group_production*: The overall group production in µWh/10.
-- *group_users*: ID, meter ID, consumption, power (Leistung) and self-sufficiency of each user in the group. 
+- *group_users*: ID, meter ID, consumption and power (Leistung) of each user in the group. 
 *consumption* is given in µWh/10, *power* (Leistung) in µW. 
-*self_sufficiency* returns a value between 0 and 1 where smaller values are considered to be better.
