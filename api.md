@@ -120,17 +120,17 @@ Example: `200 {'energy': {'2020-01-15 10:00:04': 2180256872214000, '2020-01-15 1
 'power': {'2020-01-15 10:00:04': 0, '2020-01-15 10:01:10': 0, ...}}`
 
 ### Group
-`GET /group-consumption-history?begin=$begin`
+`GET /group-consumption-history`
 
-Shows the history of power consumption from the given starting point.
+Shows the history of power consumption.
 
-Parameters:
-- `begin` (int): Start time of consumption as unix timestamp. Default is yesterday at 00:00:00 am.
+Parameters: none
 
 Returns: `200 
 { 
     "consumed_energy": string => int, 
     "consumed_power": string => int,
+    "group_users": list,
     "produced_first_meter_energy": string => int, 
     "produced_first_meter_power": string => int,
     "produced_second_meter_energy": string => int,
@@ -139,6 +139,7 @@ Returns: `200
 or `206 {}` if there is no history.
 - *consumed_energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
 - *consumed_power*: A dictionary (JSON object) with each power consumption (mW) mapped to its timestamp.
+- *group_users*: A list of dicitionaries (JSON objects) with meter readings (μWh/10) and power consumption values (mW) of each group user mapped to their timestamps.
 - *produced_first_meter_energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
 - *produced_first_meter_power*: A dictionary (JSON object) with each power production (mW) mapped to its timestamp.
 - *produced_second_meter_energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
@@ -147,6 +148,10 @@ or `206 {}` if there is no history.
 Example: `200  {
     "consumed_energy": {"2020-01-15 10:00:04": 2180256872214000, "2020-01-15 10:01:10": 2180256872214000, ...},
     "consumed_power": {"2020-01-15 10:00:04": 27279, "2020-01-15 10:01:10": 27200, ...},
+    "group_users": [{'1': {'energy': [{'2020-01-15 10:00:04': 2180256872214000}, ...],
+                            'power': [{'2020-01-15 10:00:04': 27279}, ...]}},
+                    {'2': {'energy': [{'2020-01-15 10:00:04': 2180256872214000}, ...],
+                            'power': [{'2020-01-15 10:00:04': 27279}, ...]}}],
     "produced_first_meter_energy": {"2020-01-15 10:00:04": 2180256872214000, "2020-01-15 10:01:10": 2180256872214000, ...},
     "produced_first_meter_power": {"2020-01-15 10:00:04": 27279, "2020-01-15 10:01:10": 27200, ...},
     "produced_second_meter_energy": {"2020-01-15 10:00:04": 2180256872214000, "2020-01-15 10:01:10": 2180256872214000, ...},
