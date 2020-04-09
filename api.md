@@ -145,18 +145,22 @@ or `206 {}` if there is no history.
 - *produced_second_meter_energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
 - *produced_second_meter_power*: A dictionary (JSON object) with each power production (mW) mapped to its timestamp.
 
-Example: `200  {
+Example: 
+```javascript
+200  {
     "consumed_energy": {"2020-01-15 10:00:04": 2180256872214000, "2020-01-15 10:01:10": 2180256872214000, ...},
     "consumed_power": {"2020-01-15 10:00:04": 27279, "2020-01-15 10:01:10": 27200, ...},
     "group_users": [{'1': {'energy': [{'2020-01-15 10:00:04': 2180256872214000}, ...],
                             'power': [{'2020-01-15 10:00:04': 27279}, ...]}},
                     {'2': {'energy': [{'2020-01-15 10:00:04': 2180256872214000}, ...],
-                            'power': [{'2020-01-15 10:00:04': 27279}, ...]}}],
+                            'power': [{'2020-01-15 10:00:04': 27279}, ...]}},
+		    ...],
     "produced_first_meter_energy": {"2020-01-15 10:00:04": 2180256872214000, "2020-01-15 10:01:10": 2180256872214000, ...},
     "produced_first_meter_power": {"2020-01-15 10:00:04": 27279, "2020-01-15 10:01:10": 27200, ...},
     "produced_second_meter_energy": {"2020-01-15 10:00:04": 2180256872214000, "2020-01-15 10:01:10": 2180256872214000, ...},
     "produced_second_meter_power": {"2020-01-15 10:00:04": 27279, "2020-01-15 10:01:10": 27200, ...}
-}`
+}
+```
 
 ## Disaggregation 
 ### User
