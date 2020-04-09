@@ -257,7 +257,7 @@ Returns: `200 {"id": int, "avatar": string}[]` or `400 {ErrorObject}`/`206 {Erro
 ### Individual global challenge
 `GET /individual-global-challenge`
 
-Shows the individual saving prognosis for today in µWh/10 and the individual baseline value in µWh/10.
+Shows the individual saving prognosis for today in µWh/10 and the individual baseline in µWh/10.
 
 Parameters: none
 
