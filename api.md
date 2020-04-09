@@ -257,9 +257,9 @@ Shows the individual saving prognosis for today in µWh/10 and the individual ba
 
 Parameters: none
 
-Returns: `200 {"saving": {string => float}, "baseline": {string => int}}` or `206 {}` if there is no history.
+Returns: `200 {"saving": {string => float}, "baseline": int}` or `206 {}` if there is no history.
 
-Example: `200 {"saving": {"2020-01-15 10:01:10": 3148577026610.7812}, "baseline": {"2020-02-21 09:40:04": 53011346257574}}`
+Example: `200 {"saving": {"2020-01-15 10:01:10": 3148577026610.7812}, "baseline": 53011346257574}`
 
 ### Community global challenge
 `GET /community-global-challenge`
