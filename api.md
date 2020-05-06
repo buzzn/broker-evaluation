@@ -195,7 +195,7 @@ Gets the user's profile.
 
 Parameters: none
 
-Returns: `200 {"id": int, "name": string, "firstName": string, "nick": string, "flatSize": float, "inhabitants": int, "groupAddress": string, "mail": string, "avatar": string}`
+Returns: `200 {"id": int, "name": string, "firstName": string, "nick": string, "flatSize": float, "inhabitants": int, "groupAddress": string, "mail": string, "avatar": string, "registration_date": string, "baseline_state": string}`
 - *id*: The user's id.
 - *name*: The user's name.
 - *firstName*: The user's first name.
@@ -206,6 +206,8 @@ Returns: `200 {"id": int, "name": string, "firstName": string, "nick": string, "
 - *inhabitants*: The number of people living in the flat.
 - *avatar*: The user's avatar encoded in base64.
 - *meterId*: The id of the user's meter.
+- *registration_date*: The user's registration date (year-month-day hour:minute:second.microseconds)
+- *baseline_state*: The user's baseline sate ("READY", "WAITING_FOR_DATA", "NO_READINGS_AVAILABLE")
 
 ### Update  profile
 `PUT /profile`
