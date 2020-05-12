@@ -138,27 +138,27 @@ Returns: `200
 }` 
 or `206 {}` if there is no history.
 - *consumed_energy*: A dictionary (JSON object) with the first and the latest meter reading (μWh/10) of the day mapped to their timestamps.
-- *consumed_power*: A dictionary (JSON object) with each power consumption (mW) mapped to its timestamp.
-- *group_users*: A dictionary (JSON objects) with the first and the latest meter reading (μWh/10) of the day and power consumption values (mW) of each group user mapped to their timestamps.
+- *consumed_power*: A dictionary (JSON object) with average power consumptions (mW) of 15 minute timeframes mapped to their timestamps.
+- *group_users*: A dictionary (JSON objects) with the first and the latest meter reading (μWh/10) of the day and average power consumption values (mW) of 15 minutes timeframes of each group user mapped to their timestamps.
 - *produced_first_meter_energy*: A dictionary (JSON object) with the first and the latest meter reading (μWh/10) of the day mapped to their timestamps.
-- *produced_first_meter_power*: A dictionary (JSON object) with each power production (mW) mapped to its timestamp.
+- *produced_first_meter_power*: A dictionary (JSON object) with average power productions (mW) of 15 minute timeframes mapped to their timestamps.
 - *produced_second_meter_energy*: A dictionary (JSON object) with the first and the latest meter reading (μWh/10) of the day mapped to their timestamps.
-- *produced_second_meter_power*: A dictionary (JSON object) with each power production (mW) mapped to its timestamp.
+- *produced_second_meter_power*: A dictionary (JSON object) with average power productions (mW) of 15 minute timeframes mapped to their timestamps.
 
 Example: 
 ```javascript
 200  {
-    "consumed_energy": {"2020-01-15 00:00:04": 2180256872214000, "2020-01-15 21:59:10": 2180256872214000},
-    "consumed_power": {"2020-01-15 10:00:04": 27279, "2020-01-15 10:01:10": 27200, ...},
-    "group_users": {'1': {'energy': {'2020-01-15 00:00:04': 2180256872214000, "2020-01-15 21:59:10": 2180256872214000},
-                          'power':{'2020-01-15 10:00:04': 27279, ...}},
-                   {'2': {'energy': {'2020-01-15 10:00:04': 2180256872214000, "2020-01-15 21:59:10": 2180256872214000},
-                          'power': {'2020-01-15 10:00:04': 27279}, ...}},
-		    ...},
-    "produced_first_meter_energy": {"2020-01-15 00:00:04": 2180256872214000, "2020-01-15 21:59:10": 2180256872214000},
-    "produced_first_meter_power": {"2020-01-15 10:00:04": 27279, "2020-01-15 10:01:10": 27200, ...},
-    "produced_second_meter_energy": {"2020-01-15 00:00:04": 2180256872214000, "2020-01-15 21:59:10": 2180256872214000},
-    "produced_second_meter_power": {"2020-01-15 10:00:04": 27279, "2020-01-15 10:01:10": 27200, ...}
+        'consumed_energy': {'2020-01-15 00:00:04': 2180256872214000, '2020-01-15 00:47:10': 2180256872214000},
+        'consumed_power': {'2020-01-15 00:15:00': 224550.0, '2020-01-15 00:30:00': 232000.0, '2020-01-15 00:45:00': 227630.0},
+        'group_users': {'1': {'energy': {'2020-01-15 00:00:04': 2180256872214000, '2020-01-15 00:47:10': 2180256872214000}, 
+                              'power': {'2020-01-15 00:15:00': 224550.0, '2020-01-15 00:30:00': 232000.0, '2020-01-15 00:45:00': 227630.0}},
+                        '2': {'energy': {'2020-01-15 00:00:04': 2180256872214000, '2020-01-15 00:47:10': 2180256872214000},
+                              'power': {'2020-01-15 00:15:00': 224550.0, '2020-01-15 00:30:00': 232000.0, '2020-01-15 00:45:00': 227630.0}}
+                        ...},
+        'produced_first_meter_energy': {'2020-01-15 00:00:04': 2180256872214000, '2020-01-15 00:47:10': 2180256872214000},
+        'produced_first_meter_power': {'2020-01-15 00:15:00': 224550.0, '2020-01-15 00:30:00': 232000.0, '2020-01-15 00:45:00': 227630.0},
+        'produced_second_meter_energy': {'2020-01-15 00:00:04': 2180256872214000, '2020-01-15 00:47:10': 2180256872214000},
+        'produced_second_meter_power': {'2020-01-15 00:15:00': 224550.0, '2020-01-15 00:30:00': 232000.0, '2020-01-15 00:45:00': 227630.0}
 }
 ```
 
