@@ -110,14 +110,14 @@ Returns: `200` if the challenge was quit, `404` if no such challenge is running,
 Shows the history of power consumption from the given starting point.
 
 Parameters:
-- `begin` (int): Start time of consumption as unix timestamp. Default is yesterday at 00:00:00 am.
+- `begin` (int): Start time of consumption as unix timestamp. Default is today at 00:00:00 am.
 
 Returns: `200 {"energy": string => int, "power": string => int}` or `206 {}` if there is no history. 
-- *energy*: A dictionary (JSON object) with each meter reading (μWh/10) mapped to its timestamp.
-- *power*: A dictionary (JSON object) with each power consumption (mW) mapped to its timestamp.
+- *energy*: A dictionary (JSON object) with the first and the latest meter reading (μWh/10) of the day mapped to their timestamps.
+- *power*: A dictionary (JSON object) with average power consumptions (mW) of 15 minute timeframes mapped to their timestamps.
 
-Example: `200 {'energy': {'2020-01-15 10:00:04': 2180256872214000, '2020-01-15 10:01:10': 2180256872214000, ...},
-'power': {'2020-01-15 10:00:04': 0, '2020-01-15 10:01:10': 0, ...}}`
+Example: `200 {'energy': {'2020-01-15 00:00:04': 2180256872214000, '2020-01-15 00:47:10': 2180256872214000},
+'power': {'2020-01-15 00:15:00': 224550.0, '2020-01-15 00:30:00': 232000.0, '2020-01-15 00:45:00': 227630.0}}`
 
 ### Group
 `GET /group-consumption-history`
